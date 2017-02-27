@@ -1,0 +1,15 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("<< Back to Profile", {:action => 'show'}, :class => 'back-link') %></div>
+	</div>
+</div>
+
+<div class="contentblock"><center>
+<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f} ) %>
+      <%= submit_tag('Update User') %>
+
+<% end %>
+</center>
+</div>

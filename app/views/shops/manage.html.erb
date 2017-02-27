@@ -1,0 +1,33 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("Add new shop", {:action => 'new'}, :class => 'action new') %></div>
+	</div>
+</div>
+
+<div class="contentblock">
+
+<center><%= pluralize(@shops.size, 'shop') %> found.</center> 
+	<table class="shop_wait">
+	<tr >
+		<th class="shop_wait_inside">Shop</th>
+		<th class="shop_wait_inside">Address</th>
+		<th class="shop_wait_inside">Visible</th>
+		<th class="shop_wait_inside">Open</th>
+		<th class="shop_wait_inside">Close</th>
+		<th class="shop_wait_inside">Action</th>
+	</tr>
+	<% @shops.each do |shop| %>
+		<td class="shop_wait_inside"><%= shop.shopname%></td>
+		<td class="shop_wait_inside"><%= shop.address%></td>
+		<td class="shop_wait_inside"><%= shop.visible %></td>
+		<td class="shop_wait_inside"><%= shop.topen.to_s(:time)%></td>
+		<td class="shop_wait_inside"><%= shop.tclose.to_s(:time)%></td>
+		<td class="shop_wait_inside">
+			<%= link_to("Edit", {:action => 'edit', :id => shop.id}, :class => 'action edit')%>
+			<%= link_to("Delete", {:action => 'delete', :id => shop.id}, :class => 'action delete')%>
+			
+		</td>
+	</tr>
+	<% end %>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+<%= error_messages_for(@user) %>
+
+<table summary="user form fields">
+  <tr>
+    <th><%= f.label(:Name) %></th>
+    <td><%= f.text_field(:name, :class => 'input_register') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:Email) %></th>
+    <td><%= f.text_field(:email, :class => 'input_register') %></td>
+  </tr>
+    <tr>
+    <th><%= f.label(:Email_Confirmation) %></th>
+    <td><%= f.text_field(:email_confirmation, :class => 'input_register') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:Password) %></th>
+    <td><%= f.password_field(:password_digest, :class => 'input_register') %></td>
+  </tr>
+   <tr>
+    <th><%= f.label(:Password_Confirmation) %></th>
+    <td><%= f.password_field(:password_confirmation_digest, :class => 'input_register') %></td>
+  </tr>
+   <tr>
+        <th><%= f.label(:Accept_Terms) %></th>
+        <td><%= f.check_box(:terms_of_service) %></td>
+  </tr>
+   <tr>
+        <th><%= f.label(:Confirm_The_Age_of_Majority) %></th>
+        <td><%= f.check_box(:accept_age) %></td>
+  </tr>
+</table>

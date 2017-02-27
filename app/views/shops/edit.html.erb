@@ -1,0 +1,16 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("Back to shops list", {:action => 'manage'}, :class => 'back-link') %>
+		</div>
+	</div>
+</div>
+
+
+<div class="contentblock">
+
+<%=form_for(:shop, :url => {:action => 'update', :id => @shop.id}) do |f| %>
+<%= render(:partial => "form", :locals => {:f => f}) %>	
+<center><%= submit_tag("Update Shop") %></center>
+	
+	<% end %>
+</div>

@@ -1,0 +1,19 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single_wide"><%= link_to("Back to comments list", {:action => 'index', :shop_id => @shop.id}, :class => 'back-link') %>
+		</div>
+	</div>
+</div>
+
+<div class="contentblock">
+	<h2>Update Comment</h2>
+
+	<%= form_for(:comment, :url => {:action => 'update', :id => @comment.id, :shop_id => @shop.id}) do |f| %>
+
+	<%= render(:partial => "form", :locals => {:f => f}) %>
+	<div class="form-buttons">
+		<center><%= submit_tag("Update") %></center>
+	</div>
+
+	<% end %>
+</div>

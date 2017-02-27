@@ -1,0 +1,18 @@
+<%= error_messages_for(@comment) %>
+<center>
+	<table summary="Subject foorm fields">
+		<tr>
+			<th><%= f.label(:shop_id, "Shop") %></th>
+			<td><%= @shop.shopname %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:Rate) %></th>
+			<td><%=f.text_field(:rate, :placeholder => "1 to 10", :class => "input_rate") %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:Comment) %></th>
+			<td><%=f.text_area(:comments, :class => "input_comment") %></td>
+		</tr>
+		<% params[:shop_id] = @shop.id %>
+	</table>
+</center>

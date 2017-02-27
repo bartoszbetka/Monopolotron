@@ -1,0 +1,370 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+ */
+
+body {
+	
+	background: white;
+	font-size: 19px;
+	line-height: 30px;
+	margin: 0px;
+	font-family: arial, verdana, sans-serif;
+	color: black;
+}
+
+div#container {
+	
+	width: 1000px;
+	margin: 0px auto;
+	padding: 0px;
+}
+
+div#content {
+	
+	width: 100%;
+	padding-top: 150px;
+	/* background: #b1b1b1;*/ 
+}
+
+div#header {
+	
+	width: 1000px;
+	height: 150px;
+	position: absolute;
+	top: 0px;
+	text-align: center;
+	line-height: 90px;
+	vertical-align: middle;
+	color: black;
+	font-size: 35px;
+	font-weight: 900;
+	background: white;
+	background-image: url("logo.jpeg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+div#menu {
+	
+	float: left;
+	width: 100%;
+	height: 30px;
+	background: white;
+	text-align: center;
+	margin: 0px auto;
+}
+
+a:link {
+
+	color: #FFFFFF;
+	text-decoration: none
+}
+
+a:visited { 
+
+	color: #FFFFFF; 
+	text-decoration: none
+}
+
+a:hover { 
+	color: #000000; 
+	text-decoration: underline
+}
+
+a:active { 
+	color: #FFFFFF; 
+	text-decoration: none
+}
+
+div#login_panel {
+	
+	width: 100%;
+	height: 80px;
+	text-align: center;
+	float: left;
+	color: black;
+	background: #b1b1b1;
+}
+
+div#maincontent {
+	width: 100%;
+	float: left;
+	background: #b1b1b1;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+
+}
+
+div#footer {
+	
+	width: 100%;
+	position: relative;
+	bottom: 0px;
+	line-height:20px;
+	font-size: 14px;
+	text-align: center;
+	color: #dc8340;
+}
+
+div.contentblock {
+	
+	width: 950px;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid #dc8340;
+	border-radius: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: black;
+}
+
+div#content_button_bar {
+
+	width: 900px;
+	height: 30px;
+	color: white;
+	margin: 10px auto;
+	text-align: center;
+}
+
+div.content_button {
+
+	width: 178px;
+	height: 30px;
+	float:left;
+	background: #dc8340;
+	border-left: 1px solid #b1b1b1;
+	border-right: 1px solid #b1b1b1;
+	font-weight: bolder;
+}
+
+div.content_button_single {
+
+	width: 180px;
+	height: 30px;
+	float:left;
+	background: #dc8340;
+	font-weight: bolder;
+	border-radius: 10px;
+}
+
+div.content_button_single_wide {
+
+	width: 230px;
+	height: 30px;
+	float:left;
+	background: #dc8340;
+	font-weight: bolder;
+	border-radius: 10px;
+}
+
+div.content_button_left {
+
+	width: 179px;
+	height: 30px;
+	float:left;
+	background: #dc8340;
+	border-right: 1px solid #b1b1b1;
+	font-weight: bolder;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+div.content_button_right {
+
+	width: 179px;
+	height: 30px;
+	float:left;
+	background: #dc8340;
+	border-left: 1px solid #b1b1b1;
+	font-weight: bolder;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+div.menublock_inside {
+
+	width: 248px;
+	height: 30px;
+	/* margin: 2px 1px; */
+	float:left;
+	background: #dc8340;
+    color: white;
+	font-weight: bolder;
+	border-left: 1px solid white;
+	border-right: 1px solid white;	
+	}
+
+div.menublock_out_left {
+
+	width: 249px;
+	height: 30px;
+	border-top-left-radius: 15px;
+	border-right: 1px solid white;
+	float:left;
+	background: #dc8340;
+    color: white;
+	font-weight: bolder;
+	}
+
+
+div.menublock_out_right {
+
+	width: 249px;
+	height: 30px;
+	border-top-right-radius: 15px;
+	border-left: 1px solid white;
+	float:left;
+	background: #dc8340;
+    color: white;
+	font-weight: bolder;
+
+	}
+
+div.menublock_inside_private {
+
+	width: 248px;
+	height: 30px;
+	/* margin: 2px 1px; */
+	float:left;
+	background: #dc8340;
+    color: white;
+	font-weight: bolder;
+	border-left: 1px solid white;
+	border-right: 1px solid white;	
+	}
+
+div.menublock_out_left_private {
+
+	width: 249px;
+	height: 30px;
+	border-top-left-radius: 15px;
+	border-right: 1px solid white;
+	float:left;
+	background: #dc8340;
+    color: white;
+	font-weight: bolder;
+	}
+
+
+div.menublock_out_right_private {
+
+	width: 249px;
+	height: 30px;
+	border-top-right-radius: 15px;
+	border-left: 1px solid white;
+	float:left;
+	background: #dc8340;
+    color: white;
+	font-weight: bolder;
+
+	}
+
+table.shop_wait {
+
+	border: 1px solid #dc8340;
+	margin: 10px auto;
+	text-align: center;
+}
+.shop_wait_inside {
+
+	border: 1px solid #dc8340;
+	text-align: center;
+
+}
+
+.input_comment {
+
+	width: 300px;
+	height: 100px;
+	box-sizing: border-box;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #dc8340;
+	border-radius: 5px;
+
+}
+
+.input_rate {
+
+	width: 100px;
+	box-sizing: border-box;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #dc8340;
+	border-radius: 5px;
+}
+
+.input_search {
+
+	width: 250px;
+	box-sizing: border-box;
+	padding: 3px 5px;
+	margin: 8px 0;
+	border: 1px solid #dc8340;
+	border-radius: 5px;
+}
+
+.input_register {
+
+	width: 175px;
+	box-sizing: border-box;
+	padding: 3px 5px;
+	margin: 8px 0;
+	border: 1px solid #dc8340;
+	border-radius: 5px;
+}
+
+.input_login {
+
+	width: 200px;
+	box-sizing: border-box;
+	padding: 3px 5px;
+	margin: 8px 0;
+	border: 1px solid #dc8340;
+	border-radius: 5px;
+}
+
+.input_manage {
+
+	width: 155px;
+	box-sizing: border-box;
+	padding: 3px 5px;
+	margin: 8px 0;
+	border: 1px solid #dc8340;
+	border-radius: 5px;
+}
+input[type=submit] {
+
+	padding:5px 15px; 
+    background: #dc8340; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 750;
+    margin-bottom: 5px;
+
+}
+
+
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix {display:inline-block;}
+/* Hide from IE Mac \*/
+.clearfix {display:block;}

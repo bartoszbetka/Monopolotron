@@ -1,0 +1,26 @@
+<div class="contentblock">
+
+  <center><div><%= pluralize(@users.size, 'user') %> found</div>
+      <!-- class="listing" -->
+  <table class="shop_wait">
+    <tr>
+      <th class="shop_wait_inside">Name</th>
+      <th class="shop_wait_inside">Email</th>
+      <th class="shop_wait_inside">Created</th>
+      <th class="shop_wait_inside">Updated</th>
+      <th class="shop_wait_inside">Actions</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td class="shop_wait_inside" ><%= user.name %></td>
+      <td class="shop_wait_inside" ><%= mail_to(user.email) %></td>
+      <td class="shop_wait_inside" ><%= @user.created_at  %></td>
+      <td class="shop_wait_inside" ><%= @user.updated_at %></td>
+      <td class="shop_wait_inside" >
+        <%= link_to('Delete', {:action => 'special_delete', :id => user.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table></center>
+
+</div>

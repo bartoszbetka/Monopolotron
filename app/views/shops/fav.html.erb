@@ -1,0 +1,25 @@
+<div class="contentblock">
+<p>
+	<center><%= pluralize(@favshops.size, 'favourite shop') %> found.</center>
+
+	<table class="shop_wait" margin="auto" align="center">
+	<tr >
+		<th class="shop_wait_inside">Shop</th>
+		<th class="shop_wait_inside">Address</th>
+		<th class="shop_wait_inside">Open</th>
+		<th class="shop_wait_inside">Close</th>
+		<th class="shop_wait_inside">Action</th>
+	</tr>
+       <% @favshops.each do |favshop| %>
+		<td class="shop_wait_inside"><%= favshop.shopname%></td>
+		<td class="shop_wait_inside"><%= favshop.address%></td>
+		<td class="shop_wait_inside"><%= favshop.topen.to_s(:time)%></td>
+		<td class="shop_wait_inside"><%= favshop.tclose.to_s(:time)%></td>
+		<td class="shop_wait_inside"><%= link_to("Delete", {:action => 'fav_destroy', :id => favshop.id }, :class => 'back-link') %></td>
+	</tr>
+	<% end %>
+
+    </table>
+</p>
+</div>
+

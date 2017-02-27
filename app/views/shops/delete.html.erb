@@ -1,0 +1,17 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("Back to List", {:action => 'manage'}, :class => 'back-link') %>
+		</div>
+	</div>
+</div>
+
+<div class="contentblock">
+	<%=form_for(:shop, :url => {:action => 'destroy', :id => @shop.id}) do |f| %>
+		<p> Are you sure you want to permanently delete this shop?</p>
+		<center><%= @shop.shopname %><br>
+
+			<%= submit_tag("Delete Shop") %></center>
+	
+	<% end %>
+
+</div>

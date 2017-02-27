@@ -1,0 +1,26 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single_wide"><%= link_to("Back to comments list", {:action => 'index', :shop_id => @shop.id}, :class => 'back-link') %>
+		</div>
+	</div>
+</div>
+
+<div class="contentblock">
+	<div class="pages delete">
+		<h2>Delete Comment</h2>
+
+		<%= form_for(:comment, :url => {:action => 'destroy', :id => @comment.id, :shop_id => @shop.id}) do |f| %>
+
+		<p>Are you sure you want to permanently delete this comment?
+		</p>
+
+		<p class="reference-name">
+			<center><%= @comment.comments %></center>
+		</p>
+
+		<div class="form-buttons">
+			<center><%= submit_tag("Delete Comment") %></center>
+		</div>
+		<% end %>
+	</div>
+</div>

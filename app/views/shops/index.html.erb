@@ -1,0 +1,64 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("Add new shop", {:action => 'new'}, :class => 'action new') %></div>
+	</div>
+</div>
+
+<div class="contentblock">
+
+<center><%= pluralize(@shops.size, 'shop') %> in base. </center>
+
+<table class="shop_wait" width="950px">
+	<tr class="shop_wait_inside">
+		<th class="shop_wait_inside">Shop</th>
+		<th class="shop_wait_inside">Address</th>
+		<th class="shop_wait_inside">Open</th>
+		<th class="shop_wait_inside">Close</th>
+		<th class="shop_wait_inside">Rating</th>
+		<th class="shop_wait_inside">Favourites</th>
+		<th class="shop_wait_inside">Comments</th>
+	</tr>
+	<% @shops.each do |shop| %>
+		<td class="shop_wait_inside"><%= shop.shopname%></td>
+		<td class="shop_wait_inside"><%= shop.address%></td>
+		<td class="shop_wait_inside"><%= shop.topen.to_s(:time)%></td>
+		<td class="shop_wait_inside"><%= shop.tclose.to_s(:time)%></td>
+		<td class="shop_wait_inside"><% @comments = shop.comments %>
+    		<% @value = 0 %>
+    		<%@comments.each do |comment|%>
+    		<%  @value = @value + comment.rate %>
+    		<%end%>
+    		<%@total = @comments.size%>
+    		<%@average_rating = @value / @total.to_f%>
+  			<%= @average_rating.round(2) %></td>
+		 <td class="shop_wait_inside">
+		<% if shop.users.exists?(session[:user_id])  %>
+			<%= 'Already added.' %>
+			<% else %>
+			<%= link_to("Add", {:action => 'favourite', :id => shop.id}, :class => 'action edit')%>
+			<% end %>
+			</td>
+		<td class="shop_wait_inside"><%= link_to(pluralize(shop.comments.count, 'comment'), {:controller => 'comments', :action => 'index', :shop_id => shop.id}, :class => 'action edit')%> </td>
+		
+	</tr>
+	<% end %>
+
+    </table></div>
+
+<div class="contentblock">
+<br>
+ <center><div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div></center>
+
+<script type="text/javascript">
+	
+	handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
+<br>
+</div>

@@ -1,0 +1,13 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("<< Back to Profile", {:action => 'show'}, :class => 'back-link') %></div>
+	</div>
+</div>
+
+<div class="contentblock">    
+<%= form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| -%>
+
+    <p>Are you sure you want to permanently delete your accunt?</p>
+      <center><%= submit_tag("Delete User") %></center>
+   <% end %>
+</div>

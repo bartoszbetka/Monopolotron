@@ -1,0 +1,14 @@
+<div class="contentblock">
+<p>
+	<td valign="top">				
+	<p>Wypelnij ponizsze pola aby sie zarejestrowac.</p><br>
+
+	<center>
+	<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+    <%= render(:partial => 'form', :locals => {:f => f} ) %>
+    <%= submit_tag('Create User') %>
+	<% end %>
+	</center>
+	</td>
+</p>
+</div>

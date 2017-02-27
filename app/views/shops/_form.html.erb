@@ -1,0 +1,20 @@
+<%= error_messages_for(@shop) %>
+
+		<table summary="Subject foorm fields" class="shop_wait">
+			<tr>
+				<th class="shop_wait_inside"><%= f.label(:Shop) %></th>
+				<td class="shop_wait_inside"><%=f.text_field((:shopname), :class => 'input_manage') %></td>
+			</tr>
+			<tr>
+				<th class="shop_wait_inside"><%= f.label(:Address) %></th>
+				<td class="shop_wait_inside"><%=f.text_field((:address), :class => 'input_manage') %></td>
+			</tr>
+			<tr>
+				<th class="shop_wait_inside"><%= f.label(:Open) %></th>
+				<td class="shop_wait_inside"><%= f.time_select(:topen) %></td>
+			</tr>
+			<tr>
+				<th class="shop_wait_inside"><%= f.label(:Close) %></th>
+				<td class="shop_wait_inside"><%= f.time_select(:tclose) %></td>
+			</tr>
+		</table>

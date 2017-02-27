@@ -1,0 +1,36 @@
+<h1>Shops#show</h1>
+
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= @shop.shopname %></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td><%= @shop.address %></td>
+    </tr>
+    <tr>
+      <th>Open</th>
+      <td><%= @shop.topen %></td>
+    </tr>
+    <tr>
+      <th>Close</th>
+      <td><%= @shop.tclose %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @shop.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @shop.updated_at %></td>
+    </tr>
+  </table>
+
+
+

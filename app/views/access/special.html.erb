@@ -1,0 +1,10 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_left"><%= link_to("Manage users", :controller => 'users', :action => 'index') %></div>
+		<div class="content_button"><%= link_to("Manage shops", :controller => 'shops', :action => 'manage') %></div>
+		<div class="content_button"><%= link_to("Favourite shops", :controller => 'shops', :action => 'fav') %></div>
+		<div class="content_button"><%= link_to("Accept shops", :controller => 'shops', :action => 'wait_accept') %></div>
+		<div class="content_button_right"><%= link_to("Logout", :action => 'logout') %></div>
+		
+	</div>
+</div>

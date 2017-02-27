@@ -1,0 +1,115 @@
+<div class="contentblock">
+<center>
+<td valign="top">	
+<%= form_tag(:action => 'search') do %>
+<tr>
+	<th><%= label_tag(:Your_Address) %></th>
+	<td><%= text_field_tag(:search, params[:search], :class => 'input_search' ) %></td><br />
+</tr>
+<tr>
+	<th><%= label_tag("Distance: 1km") %></th>
+	<td><%= radio_button_tag(:distan, params[:distan] = 1 ) %></td><br />
+</tr>
+<tr>
+	<th><%= label_tag("Distance: 2km") %></th>
+	<td><%= radio_button_tag(:distan, params[:distan] = 2) %></td><br />
+</tr>
+<tr>
+	<th><%= label_tag("Distance: 5km") %></th>
+	<td><%= radio_button_tag(:distan, params[:distan] = 5) %></td><br />
+</tr>
+<%= submit_tag "Search Near", :name => nil %>
+<% end %>
+</center>
+</div>
+
+
+<% unless params[:search].blank? %>
+<center><h1><%= pluralize(@shops.size, 'shop') %> found.</h1></center>
+<% end %>
+
+
+<div class="contentblock">
+<br>
+<center><div style='width: 800px;'>
+<div id="map" style='width: 800px; height: 400px;'></div>
+<br>
+</div></center>
+</div>
+
+
+<div class="contentblock">
+<br /><br />
+<center>
+<table class="shop_wait">
+	<tr >
+		<th class="shop_wait_inside">Shop</th>
+		<th class="shop_wait_inside">Address</th>
+		<th class="shop_wait_inside">Open</th>
+		<th class="shop_wait_inside">Close</th>
+		<% unless params[:search].blank? %>
+		<th class="shop_wait_inside">Distance</th>
+		<% end %>
+		<th class="shop_wait_inside">Rating</th>
+		<th class="shop_wait_inside">Favourites</th>
+		<th class="shop_wait_inside">Comments</th>
+	</tr>
+	
+	<% @shops.each do |shop| %>
+		<td class="shop_wait_inside"><%= shop.shopname%></td>
+		<td class="shop_wait_inside"><%= shop.address%></td>
+		<td class="shop_wait_inside"><%= shop.topen.to_s(:time)%></td>
+		<td class="shop_wait_inside"><%= shop.tclose.to_s(:time)%></td>
+		<% unless params[:search].blank? %>
+		<td class="shop_wait_inside"><%= shop.distance.round(2) %> km</td>
+		<% end %>
+			
+				<% if session[:user_id].present? %>	
+				<td class="shop_wait_inside"><% @comments = shop.comments %>
+    			<% @value = 0 %>
+   				<%@comments.each do |comment|%>
+   				<%  @value = @value + comment.rate %>
+   				<%end%>
+    			<%@total = @comments.size%>
+    			<%@average_rating = @value / @total.to_f%>
+  
+				<%= @average_rating.round(2) %></td>
+		 		<td class="shop_wait_inside"><% user = User.find(session[:user_id]) %>
+				<% @favshops = user.shops %> 		 
+    			<%if shop.id == @favshops %>
+				<%= 'Added' %>
+				<% else %>
+				<%= link_to("Add", {:action => 'favourite', :id => shop.id}, :class => 'action edit')%>
+				<% end %>
+				</td>
+				<td class="shop_wait_inside"><%= link_to(pluralize(shop.comments.count, 'comment'), {:controller => 'comments', :action => 'index', :shop_id => shop.id}, :class => 'action edit')%> </td>
+				<% end %>
+
+				<% unless session[:user_id].present? %>
+				
+				<% end %>
+
+
+
+		</td>
+	</tr>
+	<% end %>
+    </table>
+ </center>
+<script type="text/javascript">
+	
+	handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  marker = handler.addMarkers(<%=raw @hasha.to_json %>);
+
+  handler.bounds.extendWith(markers);
+
+  handler.bounds.extendWith(marker);
+  handler.fitMapToBounds();
+});
+</script>
+
+
+ </td>
+</div>

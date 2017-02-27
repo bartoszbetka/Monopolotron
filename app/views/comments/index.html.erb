@@ -1,0 +1,56 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("Back to shops list", {:controller => 'shops', :action => 'index'}, :class => 'back-link') %>
+		</div>
+	</div>
+</div>
+
+<div class="contentblock">
+	<p>
+
+		<center>Found
+			<%= pluralize(@comments.size, 'Comment') %>
+			for shop
+			<%= @shop.shopname %>(<%= @shop.address %>).</center>
+		<br>
+
+		<table class="shop_wait" width="900px">
+			<tr >
+				<th class="shop_wait_inside" width="50px">Rating</th>
+				<th class="shop_wait_inside" width="700px">Comments</th>
+				<th class="shop_wait_inside" width="100px">Author</th>
+				<th class="shop_wait_inside" width="150px">Action</th>
+			</tr>
+			<% @comments.each do |comment| %>
+			<td class="shop_wait_inside"><%= comment.rate%></td>
+			<td class="shop_wait_inside"><%= comment.comments%></td>
+			<% params[:user_id] = comment.user_id %>
+			<% user = User.find(params[:user_id]) %>
+			<td class="shop_wait_inside"><%= user.name %></td>
+			<td class="shop_wait_inside">
+				<% usera = User.find(session[:user_id]) %>
+				<% if usera == comment.user_id %>
+				<%= link_to('Edit', {:action => 'edit', :id => comment.id, :shop_id => @shop.id}, :class => 'action edit') %>
+				<%= link_to('Delete', {:action => 'delete', :id => comment.id, :shop_id => @shop.id}, :class => 'action delete') %>
+				<% elsif usera.privilege.present? %>
+				<%= link_to('Edit', {:action => 'edit', :id => comment.id, :shop_id => @shop.id}, :class => 'action edit') %>
+				<%= link_to('Delete', {:action => 'delete', :id => comment.id, :shop_id => @shop.id}, :class => 'action delete') %>
+			<% else %>
+				&nbsp;
+				<% end %>
+
+			</td>
+		</tr>
+		<% end %>
+		Averege rating:
+		<%= @average_rating.round(2) %>
+	</table>
+</p>
+</div>
+
+<div class="contentblock">
+<p>
+	<p>Add new comment for this shop</p>
+	<%= render(:file => 'comments/new') %>
+</p>
+</div>

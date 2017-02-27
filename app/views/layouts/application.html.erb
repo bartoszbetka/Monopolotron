@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Alkotron - wyszukaj swój sklep monopolowy.</title>
+	<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-2" />
+	<%= stylesheet_link_tag("application", :media => 'all') %>
+	<%= javascript_include_tag "application" %>
+</head>
+<body>
+<div id="container">
+	<div id="header"></div>
+		<% if !flash[:notice].blank? %><div class="notice"><%= flash[:notice] %></div><% end %>
+	<div id="content" class="clearfix">
+		<div id="menu">
+			<div class="menublock_out_left"><%= link_to("Strona glowna", {:action => 'index'}, :class => 'back-link') %></div>
+			<div class="menublock_inside"><%= link_to("Wyszukiwarka", {:controller => 'shops', :action => 'search'}, :class => 'back-link') %></div>
+			<div class="menublock_inside"><%= link_to("Rejestracja", {:controller => 'users', :action => 'new'}, :class => 'back-link') %></div>
+			<div class="menublock_out_right"><%= link_to("Kontakt", {:action => 'contact'}, :class => 'back-link') %></div></div>
+		</div>
+		<div id="login_panel">
+			<center><%= render(:file => 'access/login') %></center>
+			<!-- <% if !flash[:notice].blank? %><div class="notice"><%= flash[:notice] %></div><% end %> -->
+		</div>
+		<div id="maincontent" class="clearfix">
+			<%= yield %>
+		</div>
+	</div>
+	<div id="footer">RatCoding&copy; 2016</div>
+</div>
+</body>
+</html>

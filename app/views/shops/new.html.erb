@@ -1,0 +1,14 @@
+<div class="contentblock">
+	<div id="content_button_bar">
+		<div class="content_button_single"><%= link_to("Back to shops list", {:controller => 'shops', :action => 'index'}, :class => 'back-link') %>
+		</div>
+	</div>
+</div>
+
+<div class="contentblock">
+<%= form_for(:shop, :url => {:action => 'create'}) do |f| %>
+<%= render(:partial => 'form', :locals => {:f => f} ) %>
+<center><%= submit_tag('Create Shop') %></center>
+<% end %>
+<br>
+</div>
